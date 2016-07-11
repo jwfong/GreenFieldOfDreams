@@ -19,7 +19,17 @@
     <script src="https://npmcdn.com/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
     <script src="https://npmcdn.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
     <script src="https://npmcdn.com/@angular/router-deprecated/bundles/router-deprecated.umd.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0-6SnbzjxXn1uVeLrC0d75lOUsft8lIY",
+        authDomain: "activitytinder.firebaseapp.com",
+        databaseURL: "https://activitytinder.firebaseio.com",
+        storageBucket: "activitytinder.appspot.com",
+    };
+    firebase.initializeApp(config);
+    </script>
     <script src="app/data.service.js"></script>
     <script src="app/activity-tinder.component.js"></script>
     <script src="app/activity-login.component.js"></script>
