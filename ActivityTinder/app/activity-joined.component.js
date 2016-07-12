@@ -3,7 +3,7 @@
   app.ActivityJoinedComponent = ActivityComponent;
 
   function ActivityComponent(dataService) {
-    this.name = dataService.getActivity();
+    this.name = dataService.getJoinedActivities();
   }
   ActivityComponent.parameters = [
     app.DataService
