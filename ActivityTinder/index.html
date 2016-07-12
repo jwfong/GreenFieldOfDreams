@@ -36,10 +36,22 @@
     <script src="app/activity-create.component.js"></script>
     <script src="app/activity-joined.component.js"></script>
     <script src="app/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
   </head>
 
   <body>
     <script>
+
+  // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB8CaQGh9VhPIavbyi_rYjDVH-5lKA-rao",
+        authDomain: "activity-test-f1bdd.firebaseapp.com",
+        databaseURL: "https://activity-test-f1bdd.firebaseio.com",
+        storageBucket: "",
+      };
+      firebase.initializeApp(config);
+    
+
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '1702411606687310',

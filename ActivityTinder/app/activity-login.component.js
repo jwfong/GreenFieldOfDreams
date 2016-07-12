@@ -11,7 +11,9 @@
   ActivityComponent.annotations = [
     new ng.core.Component({
       selector: 'logging-in',
-      template: '<h1>Activity: {{name}}</h1>'
+      template: `<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>`
+
     })
   ];
 
