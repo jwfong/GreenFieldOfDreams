@@ -36,9 +36,51 @@
     <script src="app/activity-create.component.js"></script>
     <script src="app/activity-joined.component.js"></script>
     <script src="app/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
   </head>
 
   <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1702411606687310',
+          xfbml      : true,
+          version    : 'v2.6'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+
+      function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Successful login for: ' + response.name);
+          document.getElementById('status').innerHTML =
+            'Thanks for logging in, ' + response.name + '!';
+        });
+      };
+      
+      var ref = new Firebase("https://activitytinder.firebaseio.com");
+      ref.authWithOAuthPopup("facebook", function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
+
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    </script>
+
     <a id="sidebar"></a>
     <h1>Let's Swipe</h1>
     <a href="#login">Log-in to get started</a><br>
@@ -48,7 +90,7 @@
 
     <hr>
     <h4 id="login">Get going now</h4>
-    <logging-in>You broke it Josh...</logging-in>
+    <logging-in></logging-in>
 
     <hr>
     <h4 id="create">What are you up to?</h4>
