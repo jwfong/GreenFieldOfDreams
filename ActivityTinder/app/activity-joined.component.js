@@ -5,6 +5,7 @@
     this.name = dataService.getActivity();
     // Had activities in a datasService Prototype for development
     this.activities = dataService.getJoinedActivities();
+    dataService.enterNewActivities();
   }
   // Declare components injectables
   ActivityComponent.parameters = [
