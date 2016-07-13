@@ -41,15 +41,6 @@
 
   <body>
     <script>
-      var config = {
-        apiKey: "AIzaSyB8CaQGh9VhPIavbyi_rYjDVH-5lKA-rao",
-        authDomain: "activity-test-f1bdd.firebaseapp.com",
-        databaseURL: "https://activity-test-f1bdd.firebaseio.com",
-        storageBucket: "",
-      };
-      firebase.initializeApp(config);
-    
-
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '1702411606687310',
@@ -74,7 +65,7 @@
             'Thanks for logging in, ' + response.name + '!';
         });
       };
-      var ref = new Firebase("https://activity-test-f1bdd.firebaseio.com");
+      var ref = new Firebase("https://activitytinder.firebaseio.com");
       ref.authWithOAuthPopup("facebook", function(error, authData) {
         if (error) {
           console.log("Login Failed!", error);
