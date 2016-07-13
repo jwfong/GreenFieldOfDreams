@@ -41,27 +41,6 @@
 
   <body>
     <script>
-        function statusChangeCallback(response) {
-          console.log('statusChangeCallback');
-          console.log(response);
-          if (response.status === 'connected') {
-            testAPI();
-          } else if (response.status === 'not_authorized') {
-            document.getElementById('status').innerHTML = 'Please log ' +
-              'into this app.';
-          } else {
-            document.getElementById('status').innerHTML = 'Please log ' +
-              'into Facebook.';
-          }
-        }
-
-        function checkLoginState() {
-          FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-          });
-        };
-
-  // Initialize Firebase
       var config = {
         apiKey: "AIzaSyB8CaQGh9VhPIavbyi_rYjDVH-5lKA-rao",
         authDomain: "activity-test-f1bdd.firebaseapp.com",
@@ -79,12 +58,6 @@
         });
       };
 
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-
-      
-
       (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
@@ -100,7 +73,20 @@
           document.getElementById('status').innerHTML =
             'Thanks for logging in, ' + response.name + '!';
         });
-      }
+      };
+      var ref = new Firebase("https://activity-test-f1bdd.firebaseio.com");
+      ref.authWithOAuthPopup("facebook", function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
+
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
     </script>
 
     <a id="sidebar"></a>
@@ -112,7 +98,7 @@
 
     <hr>
     <h4 id="login">Get going now</h4>
-    <logging-in>You broke it Josh...</logging-in>
+    <logging-in></logging-in>
 
     <hr>
     <h4 id="create">What are you up to?</h4>
