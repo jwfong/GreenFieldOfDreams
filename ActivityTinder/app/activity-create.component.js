@@ -11,7 +11,7 @@
   ActivityComponent.annotations = [
     new ng.core.Component({
       selector: 'createActivity',
-      templateUrl: 'app/activity-form.html'
+      templateUrl: 'app/joinedEvents.html'
     })
   ];
 
