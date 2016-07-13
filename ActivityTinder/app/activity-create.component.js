@@ -3,7 +3,7 @@
   app.ActivityCreateComponent = ActivityComponent;
 
   function ActivityComponent(dataService) {
-    this.name = dataService.getActivity();
+    //this.name = dataService.getActivity();
   }
   ActivityComponent.parameters = [
     app.DataService
