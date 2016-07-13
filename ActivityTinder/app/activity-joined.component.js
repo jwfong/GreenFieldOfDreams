@@ -16,23 +16,7 @@
     new ng.core.Component({
       // create selector for html
       selector: 'joined-activities',
-      // create template for DOM
-      template: 
-      `
-      <h1>Activity: {{name}}</h1>
-      <div>
-        <h1>Joined Events!</h1>
-        <div id="activityList">
-          <div class="activity" *ngFor="let activity of activities">
-            <h3>{{activity.eventName}}</h3>
-            <img id="activityPicture" [src]="activity.eventPhoto" width="200">
-            <p>Date: {{activity.eventDate}}</p>
-            <p>Time: {{activity.eventTime}}</p>
-            <p>Creator: {{activity.eventCreator}}</p>
-          </div>
-        </div>
-      </div>
-      `
+      templateUrl: 'app/joinedEvents.html'
     })
   ];
 
@@ -40,7 +24,6 @@
   app.ActivityJoinedComponent = ActivityComponent;
 
 })(window.app = window.app || {});
-
 
 // <ul>
 //   <li *ngFor="let activity of activity; let i = index">{{activity.eventName}}</li>

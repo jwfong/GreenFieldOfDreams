@@ -8,13 +8,12 @@
     return 'running';
   };
   DataService.prototype.getJoinedActivities = function() {
-  	var activities = "no activities";
-  	firebase.database().ref('activities').once('value').then(function(snapshot) {
-  		console.log('inside promise');
-  		console.log(snapshot.val());
-  		return snapshot.val().test;
-	});
-	
+    var activities = "no activities";
+    firebase.database().ref('activities').once('value').then(function(snapshot) {
+      console.log('inside promise');
+      console.log(snapshot.val());
+      return snapshot.val();
+    });
   };
   app.DataService = DataService;
 
