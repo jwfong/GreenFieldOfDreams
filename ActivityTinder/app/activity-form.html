@@ -1,4 +1,4 @@
-<hero.form>
+
 <div class="container">
    <h1>Activity Form</h1>
    <form (ngSubmit)="onSubmit(model)" #activityForm="ngForm">
@@ -6,25 +6,25 @@
      <label for="name">Type of Activity</label>
      <input type="text" class="form-control" required
        [(ngModel)]="model.name"
-         name="name"  #name="ngModel" >
+        [ngModelOptions]="{standalone: true}">
    </div>
      <div class="form-group">
-       <label for="name">Comments</label>
+       <label for="comment">Comments?</label>
        <input type="text" class="form-control" required
          [(ngModel)]="model.comments"
-           name="name"  #name="ngModel" >
+           [ngModelOptions]="{standalone: true}" >
      </div>
      <div class="form-group">
-       <label for="name">When</label>
+       <label for="name">When?</label>
        <input type="text" class="form-control" required
          [(ngModel)]="model.when"
-           name="name"  #name="ngModel" >
+           [ngModelOptions]="{standalone: true}">
      </div>
      <div class="form-group">
-       <label for="name">Where</label>
+       <label for="name">Where?</label>
        <input type="text" class="form-control" required
          [(ngModel)]="model.where"
-           name="name"  #name="ngModel" >
+           [ngModelOptions]="{standalone: true}">
      </div>
      <button type="submit" class="btn btn-default"
              [disabled]="!activityForm.form.valid">Submit</button>
