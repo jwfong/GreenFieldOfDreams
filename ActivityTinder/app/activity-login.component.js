@@ -12,7 +12,7 @@
     new ng.core.Component({
       selector: 'logging-in',
       template: `
-        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true" scope="public_profile,email,user_friends"></div>
+      <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true" scope="email,public_profile,user_friends"></div>
       `
     })
   ];
