@@ -5,6 +5,7 @@
     this.name = dataService.getActivity();
     this.activities = [{ name: "zak" }];
     // Had activities in a datasService Prototype for development
+
     var that = this;
     dataService.getJoinedActivities(function(data) {
       var temp = [];
@@ -16,6 +17,7 @@
       that.activities = temp;
     });
     //dataService.enterNewActivities();
+    this.activities = dataService.getJoinedActivities();
   }
   // Declare components injectables
   ActivityComponent.parameters = [
