@@ -3,21 +3,19 @@
   function ActivityComponent(dataService) {
     // Invoke service and save to components name space
     this.name = dataService.getActivity();
-    this.activities = [{ name: "zak" }];
-    // Had activities in a datasService Prototype for development
+    // this.activities = [];
 
+    // Quick and dirty way to pass this to dataservice
     var that = this;
     dataService.getJoinedActivities(function(data) {
-      var temp = [];
-      for(let item of data) {
-        if(item) {
-          temp.push(item);
-        }
-      }
-      that.activities = temp;
+      //  var temp = [];
+      //  for(let item of data) {
+      //   if(item) {
+      //     temp.push(item);
+      //   }
+      // }
+      that.activities = data;
     });
-    //dataService.enterNewActivities();
-    this.activities = dataService.getJoinedActivities();
   }
   // Declare components injectables
   ActivityComponent.parameters = [
@@ -37,7 +35,3 @@
   app.ActivityJoinedComponent = ActivityComponent;
 
 })(window.app = window.app || {});
-
-// <ul>
-//   <li *ngFor="let activity of activity; let i = index">{{activity.eventName}}</li>
-// </ul>
