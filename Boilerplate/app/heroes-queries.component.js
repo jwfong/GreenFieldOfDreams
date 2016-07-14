@@ -3,11 +3,11 @@
   var ActiveLabelComponent = ng.core.Component({
     selector: 'active-label',
     template: '<span class="active-label"' +
-                    '*ngIf="active">' +
+      '*ngIf="active">' +
       'Active' +
-    '</span>'
+      '</span>'
   }).Class({
-    constructor: function() { },
+    constructor: function() {},
     activate: function() {
       this.active = true;
     }
@@ -18,14 +18,14 @@
     template: '<h2 [class.active]=active>' +
       '{{hero.name}} ' +
       '<ng-content></ng-content>' +
-    '</h2>',
+      '</h2>',
     inputs: ['hero'],
     queries: {
       label: new ng.core.ContentChild(
-                   ActiveLabelComponent)
+        ActiveLabelComponent)
     }
   }).Class({
-    constructor: function() { },
+    constructor: function() {},
     activate: function() {
       this.active = true;
       this.label.activate();
@@ -34,13 +34,12 @@
 
   var AppComponent = ng.core.Component({
     selector: 'heroes-queries',
-    template:
-      '<a-hero *ngFor="let hero of heroData"' +
-            '[hero]="hero">' +
-        '<active-label></active-label>' +
+    template: '<a-hero *ngFor="let hero of heroData"' +
+      '[hero]="hero">' +
+      '<active-label></active-label>' +
       '</a-hero>' +
       '<button (click)="activate()">' +
-        'Activate' +
+      'Activate' +
       '</button>',
     directives: [
       HeroComponent,
@@ -48,14 +47,17 @@
     ],
     queries: {
       heroCmps: new ng.core.ViewChildren(
-                      HeroComponent)
+        HeroComponent)
     }
   }).Class({
     constructor: function() {
-      this.heroData = [
-        {id: 1, name: 'Windstorm'},
-        {id: 2, name: 'Superman'}
-      ];
+      this.heroData = [{
+        id: 1,
+        name: 'Windstorm'
+      }, {
+        id: 2,
+        name: 'Superman'
+      }];
     },
     activate: function() {
       this.heroCmps.forEach(function(cmp) {
@@ -67,7 +69,6 @@
   app.HeroesQueriesComponent = AppComponent;
 
 })(window.app = window.app || {});
-
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
