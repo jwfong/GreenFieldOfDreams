@@ -1,24 +1,20 @@
 (function(app) {
-
-  app.ActivityCreateComponent = ActivityComponent;
-
-  function ActivityComponent(dataService) {
-    this.name = dataService.getActivity();
-  }
-  ActivityComponent.parameters = [
-    app.DataService
-  ];
-  ActivityComponent.annotations = [
-    new ng.core.Component({
+  app.ActivityCreateComponent = ng.core
+    .Component({
       selector: 'createActivity',
-      template: '<h1>Activity: {{name}}</h1>'
+      templateUrl: 'app/activity-form.html'
     })
-  ];
+    .Class({
+      constructor: function() {
 
-})(window.app = window.app || {});
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+        this.model = new app.Activity();
+        console.log(this.model);
+      },
+      onSubmit: function(newActivity) {
+        //add functionality to add facebook username as initiator to newAcitity.initiator
+        console.log(newActivity);
+        this.model = new app.Activity();
+        // we want to call the enterNewActivity here
+      }
+    });
+})(window.app || (window.app = {}));

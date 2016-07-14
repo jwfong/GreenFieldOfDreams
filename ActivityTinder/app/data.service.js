@@ -16,16 +16,13 @@
     });
   };
 
-  DataService.prototype.enterNewActivities = function() {
-    var activity = "testing";
+  DataService.prototype.enterNewActivities = function(activity) {
     var sessionsRef = firebase.database().ref('activities');
-    // sessionsRef.push(activity).then(function(snapshot) { // commented out so we dont actually always create new activity
-    //   console.log('inside creation');
-    //   console.log(activity, snapshot);
-    // });
+    sessionsRef.push(activity).then(function(snapshot) { // commented out so we dont actually always create new activity
+      console.log('inside creation');
+      console.log(activity, snapshot);
+    });
   };
-
-  
 
   app.DataService = DataService;
 
