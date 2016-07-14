@@ -1,18 +1,19 @@
 (function(app) {
-
-  app.ActivityCreateComponent = ActivityComponent;
-
-  function ActivityComponent(dataService) {
-    this.name = dataService.getActivity();
-  }
-  ActivityComponent.parameters = [
-    app.DataService
-  ];
-  ActivityComponent.annotations = [
-    new ng.core.Component({
+  app.ActivityCreateComponent = ng.core
+    .Component({
       selector: 'createActivity',
       templateUrl: 'app/activity-form.html'
     })
-  ];
+    .Class({
+      constructor: function() {
 
-})(window.app = window.app || {});
+        this.model = new app.Activity();
+        console.log(this.model);
+      },
+      onSubmit: function(newActivity) {
+        //add functionality to add facebook username as initiator to newActivity.initiator
+        console.log(newActivity);
+        this.model = new app.Activity();
+      }
+    });
+})(window.app || (window.app = {}));

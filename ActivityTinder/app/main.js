@@ -7,6 +7,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     bootstrap(app.ActivityCreateComponent, [app.DataService, ng.forms.disableDeprecatedForms(), ng.forms.provideForms()]);
     bootstrap(app.ActivityJoinedComponent, [app.DataService]);
+    bootstrap(app.ActivityTinderComponent, [app.DataService]);
     bootstrap(app.ActivityLoginComponent, [app.DataService]);
     bootstrap(app.ActivityTinderComponent, [app.DataService]);
   });
